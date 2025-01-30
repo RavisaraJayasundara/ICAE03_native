@@ -2,30 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import StudentList from './components/StudentList';
 import AddStudent from './components/AddStudent';
-import {createNativeStackNavigator} from '@react-navigation/native-stack'
-import { NavigationContainer } from '@react-navigation/native';
+import StudentProfile from './components/StudentProfile';
 
 export default function App() {
   
-const Stack = createNativeStackNavigator();
-
+//const Stack = createNativeStackNavigator
   return (
-    <NavigationContainer>
-    <Stack.Navigator screenOptions={
-      {
-        headerStyle:{backgroundColor:'purple'},
-        headerTintColor:'white',
-        headerTitleAlign:'center'
-      }
-    }>
-           <Stack.Screen name='List Of Student' component={StudentList} />
-           <Stack.Screen name='Add New Student' component={AddStudent} />
-
-    </Stack.Navigator>
-
-    </NavigationContainer>
-
-    
+    <View style={styles.container}>
+     <StudentProfile/>
+    </View>
   );
 }
 
