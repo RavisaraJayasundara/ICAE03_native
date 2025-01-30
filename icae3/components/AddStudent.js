@@ -1,5 +1,4 @@
-import { StyleSheet, Text, View,Image,ScrollView } from 'react-native';
-import { TextInput } from 'react-native-web';
+import { StyleSheet, Text, View,Image,ScrollView,TextInput ,Button} from 'react-native';
 
 
 export default function AddStudent(){
@@ -16,7 +15,7 @@ export default function AddStudent(){
             <TextInput style={styles.input} placeholder='Name' placeholderTextColor={'gray'}/>
             <TextInput style={styles.input} placeholder='Age' placeholderTextColor={'gray'}/>
             <TextInput style={styles.input} placeholder='Course' placeholderTextColor={'gray'}/>
-
+             <Button title='Add' style={styles.button}></Button>
         </View>
         </ScrollView>
       )
@@ -36,9 +35,15 @@ const styles = StyleSheet.create({
     },
     input:{
         border:"1px solid black",
-        width:500,
+       
         padding:10,
         margin:10,
         justifyContent: 'center',
+    },
+    button:{
+        backgroundColor:"purple",
+        borderRadius:5,
+        padding:10,
+
     }
   });
