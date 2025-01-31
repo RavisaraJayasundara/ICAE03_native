@@ -9,8 +9,10 @@ import {
   Button,
 } from "react-native";
 import { students } from "../components/StudentsDb";
+import { useNavigation } from "@react-navigation/native";
 
 export default function StudentList() {
+  const navigation=useNavigation();
   return (
     <ScrollView>
       <View>
@@ -22,14 +24,14 @@ export default function StudentList() {
           data={students}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <TouchableOpacity style={styles.card}>
+            <TouchableOpacity onPress={()=>{navigation.navigate('Profile',{student:item})}}style={styles.card}>
               <Image source={item.profile_pic} style={styles.image} />
               <Text>{item.name}</Text>
             </TouchableOpacity>
           )}
         />
         <View>
-          <Button style={styles.button} title="+" />
+          <Button style={styles.button} title="+" onPress={()=>{navigation.navigate('AddStudent')}}/>
         </View>
       </View>
 

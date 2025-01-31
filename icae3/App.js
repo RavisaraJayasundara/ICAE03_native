@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import StudentList from './components/StudentList';
 import AddStudent from './components/AddStudent';
 import StudentProfile from './components/StudentProfile';
+import StudentUpdate from './components/StudentUpdate';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -19,10 +20,10 @@ const Stack = createNativeStackNavigator();
         headerTitleAlign:'center'
       }
     }>
-           <Stack.Screen name='List Of Student' component={StudentList} />
-           <Stack.Screen name='Add New Student' component={AddStudent} />
-           <Stack.Screen name="Student Profile" component={StudentProfile} />
-
+           <Stack.Screen name='StudentList' component={StudentList} options={{title:" List of Students"}}/>
+           <Stack.Screen name='AddStudent' component={AddStudent} options={{title:" Add New Student"}}/>
+           <Stack.Screen name="Profile" component={StudentProfile} options={{title:"Student's Profile"}} />
+           <Stack.Screen name='StudentUpdate' component={StudentUpdate} options={{title:"Update the Student"}}/>
     </Stack.Navigator>
 
     </NavigationContainer>
