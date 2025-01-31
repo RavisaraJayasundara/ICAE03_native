@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Button,
 } from "react-native";
 import { students } from "../components/StudentsDb";
 
@@ -21,16 +22,18 @@ export default function StudentList() {
           data={students}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <TouchableOpacity>
+            <TouchableOpacity style={styles.card}>
               <Image source={item.profile_pic} style={styles.image} />
               <Text>{item.name}</Text>
             </TouchableOpacity>
           )}
         />
+        <View>
+          <Button style={styles.button} title="+" />
+        </View>
       </View>
-    
-        <Text style={styles.f}>UoV @ 2025</Text>
-      
+
+      <Text style={styles.f}>UoV @ 2025</Text>
     </ScrollView>
   );
 }
@@ -47,12 +50,31 @@ const styles = StyleSheet.create({
     height: 50,
     margin: 10,
   },
- f:{
-    backgroundColor:"purple",
-    color:"white",
-    height:50,
-    textAlign:"center",
-    padding:20
- }
-  
+  f: {
+    backgroundColor: "purple",
+    color: "white",
+    height: 50,
+    textAlign: "center",
+    padding: 20,
+  },
+  card: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 16,
+    marginBottom: 12,
+    backgroundColor: "#ffffff",
+    borderRadius: 8,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  button: {
+    flex: 1,
+    justifyContent: "flex-end", // Aligns the button to the bottom
+    alignItems: "flex-end", // Aligns the button to the right
+    padding: 16, // Adds padding to avoid edge clipping
+    backgroundColor: "#f9f9f9",
+    Width: 40,
+  },
 });

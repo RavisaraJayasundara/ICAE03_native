@@ -3,14 +3,31 @@ import { StyleSheet, Text, View } from 'react-native';
 import StudentList from './components/StudentList';
 import AddStudent from './components/AddStudent';
 import StudentProfile from './components/StudentProfile';
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   
-//const Stack = createNativeStackNavigator
+const Stack = createNativeStackNavigator();
+
   return (
-    <View style={styles.container}>
-     <StudentProfile/>
-    </View>
+    <NavigationContainer>
+    <Stack.Navigator screenOptions={
+      {
+        headerStyle:{backgroundColor:'purple'},
+        headerTintColor:'white',
+        headerTitleAlign:'center'
+      }
+    }>
+           <Stack.Screen name='List Of Student' component={StudentList} />
+           <Stack.Screen name='Add New Student' component={AddStudent} />
+           <Stack.Screen name="Student Profile" component={StudentProfile} />
+
+    </Stack.Navigator>
+
+    </NavigationContainer>
+
+    
   );
 }
 
